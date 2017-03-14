@@ -1,14 +1,44 @@
-<div class="catalog_page">
+<div class="store-page">
   <div class="header">
-
+    <div class="logo">
+      <%= image_tag('ruby.jpg', width: 50)%>
+    </div>
+    <div class="heading">
+      <h2>Electronic shop</h2>
+    </div>
   </div>
-  <div class="sidebar">
-
-  </div>
-  <div class="container">
-
+  <div class="body">
+    <div class="sidebar">
+      <ul>
+        <li><%= link_to 'Home', products_path%></li>
+        <li>About</li>
+        <li>Contact</li>
+        <li>Gallery</li>
+        <li><%= link_to 'Products List', products_path%></li>
+      </ul>
+    </div>
+    <div class="product-display">
+      <h2>Product Catalog</h2>
+      <table>
+        <% @products.each do |product|%>
+        <tr>
+          <td>
+            <%= image_tag(product.image_url)%>
+            <br>
+           <%= number_to_currency(product.price)%>
+            &nbsp;&nbsp;<%= link_to 'Add to Cart', line_items_path(:product_id => product), method: :post%>
+          </td>
+          <td>
+            <dl>
+              <dt><%= product.title%></dt>
+              <dd><%= product.description%></dd>
+            </dl>
+          </td>
+        </tr>
+            <% end %>
+      </table>
+      <%= will_paginate @products%>
+    </div>
   </div>
 
 </div>
-
-<%=link_to 'Home', products_path%>
