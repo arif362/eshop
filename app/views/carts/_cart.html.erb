@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+<% unless cart.line_items.empty? %>
+<h2>Your Carts </h2>
+<ul id="cart">
+  <%= render (cart.line_items)%>
+
+  <li> Total = <%= cart.total_price %></li>
+</ul>
+<%= button_to 'Empty your cart', cart, :method => :delete, confirm: 'Are you sure?'%>
+<%#= link_to 'Edit', edit_cart_path(@cart) %>
+<%#= link_to 'Back', carts_path %>
+<%= button_to 'Previous cart show page', @cart, method: :get%>
+<% end %>

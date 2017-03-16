@@ -1,0 +1,9 @@
+<% if line_item == @current_item %>
+    <li class="current_item">
+      <% else %>
+    <li>
+<% end %>
+<%= line_item.quantity %>
+&times<%= line_item.product.title %>
+<%= line_item.total_price %>
+</li>
