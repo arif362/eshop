@@ -1,0 +1,14 @@
+<div>
+   <table>
+     <thead>
+     <tr><th> Products details</th></tr>
+     </thead>
+     <tbody>
+     <tr><td>Name :<%= @order.name %></td></tr><br>
+     <tr><td>Address:<%= @order.address %></td></tr><br>
+     <tr><td>Email :<%= @order.email %></td></tr><br>
+     <tr><td>Pay Type :<%= @order.pay_type %></td></tr>
+     </tbody>
+   </table>
+</div>
+<%=link_to 'Back to Order list', orders_path %>

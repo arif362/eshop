@@ -1,0 +1,26 @@
+<div class="all-orders">
+  <table>
+    <thead>
+    <tr>
+      <th>serial</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Email</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%@orders.each do |order|%>
+    <tr>
+      <td><%= order.id%></td>
+      <td><%= order.name%></td>
+      <td><%= order.address%></td>
+      <td><%= order.email %></td>
+      <td><%= link_to 'Show', order_path(order) %>|<%= link_to 'Edit', edit_order_path(order) %>|<%= link_to 'Delete', order_path(order), method: :delete %></td>
+    </tr>
+        <% end %>
+    </tbody>
+  </table>
+<%= will_paginate @orders%>
+</div>
+<%= link_to 'Home', root_path%>
