@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  skip_before_filter :authorize, only: [:new, :create]
   def index
     @orders=Order.all
     @orders=Order.paginate(:page => params[:page], :per_page => 2)

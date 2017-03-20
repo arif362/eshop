@@ -1,5 +1,9 @@
-<h1>Notifier#order_shipped</h1>
-
-<p>
-  <%= @greeting %>, find me in app/views/notifier/order_shipped.html.erb
-</p>
+<h2>From E-shop email</h2>
+<p>We have shipped your recent order</p>
+<table>
+  <tr>
+    <th>Quantity</th>
+    <th>Description</th>
+  </tr>
+  <%= render @order.line_items%>
+</table>
